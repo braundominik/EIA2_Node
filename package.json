@@ -1,11 +1,11 @@
 {
-	"name" : "name-of-project",
-	"version" : "1.0.0",
+	"name" : "NodeTest",
+	"version" : "0.0.1",
 	"description" : "enter a description of the project here",
-	"author" : "enter your name here",
+	"author" : "Dominik",
 	"main" : "NodeTest.js",
 	"scripts" : {
-		"start" : "NodeTest.js"
+		"start" : "node NodeTest.js"
 	},
 	"engines" : {
 		"node" : "6.11.0"
