@@ -22,16 +22,18 @@ function handleListen(): void {
 
 function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
     console.log("Request received");
-
     console.log(_request.url);
+    _response.setHeader("Access-Control-Allow-Origin", "*");
+    _response.setHeader("content-type", "text/html; charset=utf-8");
+
     let query: AssocStringString = Url.parse(_request.url, true).query;
     console.log(query);
     let key: string;
     for (key in query)
-        console.log(key + ":" + query[key]);
+        _response.write(key + ":" + query[key] + "<br>");
 
-    _response.setHeader("Access-Control-Allow-Origin", "*");
-    _response.setHeader("content-type", "text/html; charset=utf-8");
-    _response.write(chunk);  
+
+
+
     _response.end();
 }

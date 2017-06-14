@@ -1,6 +1,6 @@
 {
 	"name" : "NodeTest",
-	"version" : "0.0.1",
+	"version" : "0.0.2",
 	"description" : "enter a description of the project here",
 	"author" : "Dominik",
 	"main" : "NodeTest.js",

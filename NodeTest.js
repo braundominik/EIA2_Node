@@ -15,14 +15,13 @@ function handleListen() {
 function handleRequest(_request, _response) {
     console.log("Request received");
     console.log(_request.url);
+    _response.setHeader("Access-Control-Allow-Origin", "*");
+    _response.setHeader("content-type", "text/html; charset=utf-8");
     let query = Url.parse(_request.url, true).query;
     console.log(query);
     let key;
     for (key in query)
-        console.log(key + ":" + query[key]);
-    _response.setHeader("Access-Control-Allow-Origin", "*");
-    _response.setHeader("content-type", "text/html; charset=utf-8");
-    _response.write(chunk);
+        _response.write(key + ":" + query[key] + "<br>");
     _response.end();
 }
 //# sourceMappingURL=NodeTest.js.map
