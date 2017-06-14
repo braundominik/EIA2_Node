@@ -3,7 +3,7 @@
 	"version" : "0.0.2",
 	"description" : "enter a description of the project here",
 	"author" : "Dominik",
-	"main" : "NodeTest.js",
+	"main" : "SendData.html",
 	"scripts" : {
 		"start" : "node NodeTest.js"
 	},
