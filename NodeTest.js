@@ -19,9 +19,16 @@ function handleRequest(_request, _response) {
     _response.setHeader("content-type", "text/html; charset=utf-8");
     let query = Url.parse(_request.url, true).query;
     console.log(query);
+    _response.write("Hallo " + query["prename"] + ", <br> du erhaeltst von uns folgende Eissorten <br>");
     let key;
-    for (key in query)
-        _response.write(key + ":" + query[key] + "<br>");
+    for (key in query) {
+        if (key != "toppings" && key != "prename" && key != "lastname" && key != "address" && key != "mail" && key != "Behaelter") {
+            _response.write(key + "<br>");
+        }
+    }
+    _response.write("Als Behaelter hast du " + query["Behaelter"] + " gewaehlt und als Topping " + query["toppings"] + "<br>");
+    _response.write("Die Bestellung wird an " + query["address"] + " gesendet <br>");
+    _response.write("Diese Bestelluebersicht wurde dir ebenfalls per Mail an " + query["mail"] + " zugesandt (nicht wirklich :( )");
     _response.end();
 }
 //# sourceMappingURL=NodeTest.js.map
