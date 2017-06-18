@@ -27,7 +27,7 @@ function handleRequest(_request, _response) {
         }
     }
     _response.write("Als Behaelter hast du " + query["Behaelter"] + " gewaehlt und als Topping " + query["toppings"] + "<br>");
-    _response.write("Die Bestellung wird an " + query["address"] + " gesendet <br>");
+    _response.write("Deine Bestellung wird an " + query["address"] + " gesendet <br>");
     _response.write("Diese Bestelluebersicht wurde dir ebenfalls per Mail an " + query["mail"] + " zugesandt (nicht wirklich :( )");
     _response.end();
 }
