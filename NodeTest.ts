@@ -28,16 +28,11 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
     let query: AssocStringString = Url.parse(_request.url, true).query;
     console.log(query);
     _response.write("Hallo " + query["prename"] + ", <br> du erhaeltst von uns folgende Eissorten <br>");
-    let key: string;
-    for (key in query) {
-        if (key != "toppings" && key != "prename" && key != "lastname" && key != "address" && key != "mail" && key != "Behaelter" && key != ("num" + key)) {
-            _response.write(key + "<br>");
-        }
-    }
+    _response.write(query["sorte"] + "");
 
     
-    _response.write("Sorte " + query["sorte"] + "afafa");
-    _response.write("Als Behaelter hast du " + query["Behaelter"] + " gewaehlt und als Topping " + query["toppings"] + "<br>");
+    
+    _response.write("<br> Als Behaelter hast du " + query["Behaelter"] + " gewaehlt und als Topping " + query["toppings"] + "<br>");
     _response.write("Die Bestellung wird an " + query["address"] + " gesendet <br>");
     _response.write("Diese Bestelluebersicht wurde dir ebenfalls per Mail an " + query["mail"] + " zugesandt (nicht wirklich :( )");
 
