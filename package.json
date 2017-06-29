@@ -1,15 +1,16 @@
 {
-	"name" : "NodeTest",
-	"version" : "0.0.2",
-	"description" : "enter a description of the project here",
-	"author" : "Dominik",
-	"main" : "SendData.html",
+	"name" : "DatabaseAccess",
+	"version" : "0.0.1",
+	"description" : "simple database find/insert example",
+	"author" : "Jirka Dell'Oro-Friedl'",
+	"main" : "Server.js",
 	"scripts" : {
-		"start" : "node NodeTest.js"
+		"start" : "node Server.js"
 	},
 	"engines" : {
-		"node" : "6.11.0"
+		"node" : "6.10.3"
 	},
 	"dependencies" : {
+		"mongodb": "2.2.12"
 	}
 }
