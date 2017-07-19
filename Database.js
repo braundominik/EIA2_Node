@@ -9,7 +9,7 @@ let databaseURL = "mongodb://localhost:27017/Test";
 let db;
 let accounts;
 if (process.env.NODE_ENV == "production")
-    databaseURL = "mongodb://<dbuser>:<dbpassword>@ds161022.mlab.com:61022/sfd";
+    databaseURL = "mongodb://braund:sfd@ds161022.mlab.com:61022/sfd";
 Mongo.MongoClient.connect(databaseURL, handleConnect);
 function handleConnect(_e, _db) {
     if (_e)
