@@ -10,7 +10,7 @@ let db: Mongo.Db;
 let accounts: Mongo.Collection;
 
 if (process.env.NODE_ENV == "production")
-    databaseURL = "mongodb://braund:usedata@ds143532.mlab.com:43532/testdata";
+    databaseURL = "mongodb://<dbuser>:<dbpassword>@ds161022.mlab.com:61022/sfd";
 
 Mongo.MongoClient.connect(databaseURL, handleConnect);
 

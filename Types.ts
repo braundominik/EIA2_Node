@@ -12,7 +12,9 @@ interface AccountData {
     swordlvl: number;
     rotationlvl: number;
     creepHealth: number;
+    lastHealth: number;
     creepValue: number;
+    lastValue: number;
     tower: string;
     ncDeactivated: number;
     ncActivated: number;
