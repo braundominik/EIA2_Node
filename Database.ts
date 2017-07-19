@@ -7,7 +7,7 @@ console.log("Database starting");
 
 let databaseURL: string = "mongodb://localhost:27017/Test";
 let db: Mongo.Db;
-let students: Mongo.Collection;
+let accounts: Mongo.Collection;
 
 if (process.env.NODE_ENV == "production")
     databaseURL = "mongodb://braund:usedata@ds143532.mlab.com:43532/testdata";
@@ -20,12 +20,12 @@ function handleConnect(_e: Mongo.MongoError, _db: Mongo.Db): void {
     else {
         console.log("Connected to database!");
         db = _db;
-        students = _db.collection("students");
+        accounts = _db.collection("accounts");
     }
 }
 
-export function insert(_doc: StudentData): void {
-    students.insertOne(_doc, handleInsert);
+export function insert(_doc: AccountData): void {
+    accounts.insertOne(_doc, handleInsert);
 }
 
 function handleInsert(_e: Mongo.MongoError): void {
@@ -33,7 +33,7 @@ function handleInsert(_e: Mongo.MongoError): void {
 }
 
 export function del(_del: Object): void {
-    students.remove(_del, handleDel);
+    accounts.remove(_del, handleDel);
 }
 
 function handleDel(_e: Mongo.MongoError): void {
@@ -42,25 +42,25 @@ function handleDel(_e: Mongo.MongoError): void {
 
 
 export function findAll(_callback: Function): void {
-    var cursor: Mongo.Cursor = students.find();
+    var cursor: Mongo.Cursor = accounts.find();
     cursor.toArray(prepareAnswer);
 
-    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
+    function prepareAnswer(_e: Mongo.MongoError, account: AccountData[]): void {
         if (_e)
             _callback("Error" + _e);
         else
-            _callback(JSON.stringify(studentArray));
+            _callback(JSON.stringify(account));
     }
 }
 
 export function findSpecific(_s: Object, _callback: Function): void {
-    var cursor: Mongo.Cursor = students.find(_s);
+    var cursor: Mongo.Cursor = accounts.find(_s);
     cursor.toArray(prepareAnswer);
 
-    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
+    function prepareAnswer(_e: Mongo.MongoError, account: AccountData[]): void {
         if (_e)
             _callback("Error" + _e);
         else
-            _callback(JSON.stringify(studentArray));
+            _callback(JSON.stringify(account));
     }
 }

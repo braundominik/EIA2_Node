@@ -32,12 +32,24 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 
     switch (command) {
         case "insert":
-            let student: StudentData = {
-                name: query["name"],
-                firstname: query["firstname"],
-                matrikel: parseInt(query["matrikel"])
+            let account: AccountData = {
+                user: query["user"],
+                password: query["password"],
+                wave: parseInt(query["wave"]),
+                level: parseInt(query["level"]),
+                game: parseInt(query["game"]),
+                gold: parseInt(query["gold"]),
+                swordlvl: parseInt(query["swordlvl"]),
+                rotationlvl: parseInt(query["rotationlvl"]),
+                creepHealth: parseInt(query["creepHealth"]),
+                creepValue: parseInt(query["creepValue"]),
+                tower: query["tower"],
+                ncDeactivated: parseInt(query["ncDeactivated"]),
+                ncActivated: parseInt(query["ncActivated"])
             };
-            Database.insert(student);
+
+
+            Database.insert(account);
             respond(_response, "storing data");
             break;
         case "find":
@@ -48,31 +60,13 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "search":
             let search: Object;
 
-            if (query["matrikel"] == "" && query["name"] == "") {
-                Database.findAll(function(json: string): void {
-                    respond(_response, json);
-                });
+            if (query["user"] == "" || query["password"] == "") {
+                respond(_response, "Please insert your Username and Password");
                 break;
             }
 
             else {
-
-                if (query["matrikel"] != "" && query["name"] != "") {
-                    search = { name: query["name"], matrikel: parseInt(query["matrikel"]) };
-                }
-
-                else {
-
-                    if (query["matrikel"] == "") {
-                        search = { name: query["name"] };
-                    }
-
-                    if (query["name"] == "") {
-                        search = { matrikel: parseInt(query["matrikel"]) };
-                    }
-                }
-
-
+                search = { user: query["user"], password: query["password"] };
                 Database.findSpecific(search, function(json: string): void {
                     respond(_response, json);
                 });

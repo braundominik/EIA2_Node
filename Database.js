@@ -7,7 +7,7 @@ const Mongo = require("mongodb");
 console.log("Database starting");
 let databaseURL = "mongodb://localhost:27017/Test";
 let db;
-let students;
+let accounts;
 if (process.env.NODE_ENV == "production")
     databaseURL = "mongodb://braund:usedata@ds143532.mlab.com:43532/testdata";
 Mongo.MongoClient.connect(databaseURL, handleConnect);
@@ -17,42 +17,42 @@ function handleConnect(_e, _db) {
     else {
         console.log("Connected to database!");
         db = _db;
-        students = _db.collection("students");
+        accounts = _db.collection("accounts");
     }
 }
 function insert(_doc) {
-    students.insertOne(_doc, handleInsert);
+    accounts.insertOne(_doc, handleInsert);
 }
 exports.insert = insert;
 function handleInsert(_e) {
     console.log("Database insertion returned -> " + _e);
 }
 function del(_del) {
-    students.remove(_del, handleDel);
+    accounts.remove(_del, handleDel);
 }
 exports.del = del;
 function handleDel(_e) {
     console.log("Database deletion returned -> " + _e);
 }
 function findAll(_callback) {
-    var cursor = students.find();
+    var cursor = accounts.find();
     cursor.toArray(prepareAnswer);
-    function prepareAnswer(_e, studentArray) {
+    function prepareAnswer(_e, account) {
         if (_e)
             _callback("Error" + _e);
         else
-            _callback(JSON.stringify(studentArray));
+            _callback(JSON.stringify(account));
     }
 }
 exports.findAll = findAll;
 function findSpecific(_s, _callback) {
-    var cursor = students.find(_s);
+    var cursor = accounts.find(_s);
     cursor.toArray(prepareAnswer);
-    function prepareAnswer(_e, studentArray) {
+    function prepareAnswer(_e, account) {
         if (_e)
             _callback("Error" + _e);
         else
-            _callback(JSON.stringify(studentArray));
+            _callback(JSON.stringify(account));
     }
 }
 exports.findSpecific = findSpecific;
