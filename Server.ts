@@ -106,6 +106,8 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             searchUpdate = { user: query["user"] };
 
             changeUpdate = {
+                user: query["user"],
+                password: query["password"],
                 wave: parseInt(query["wave"]),
                 level: parseInt(query["level"]),
                 game: parseInt(query["game"]),

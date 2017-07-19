@@ -84,6 +84,8 @@ function handleRequest(_request, _response) {
             let changeUpdate;
             searchUpdate = { user: query["user"] };
             changeUpdate = {
+                user: query["user"],
+                password: query["password"],
                 wave: parseInt(query["wave"]),
                 level: parseInt(query["level"]),
                 game: parseInt(query["game"]),
