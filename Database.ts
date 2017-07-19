@@ -64,3 +64,12 @@ export function findSpecific(_s: Object, _callback: Function): void {
             _callback(JSON.stringify(account));
     }
 }
+
+export function update(_s: Object, _u: Object): void {
+    accounts.update(_s, _u, handleUpdate);
+}
+
+function handleUpdate(_e: Mongo.MongoError): void {
+    console.log("Database insertion returned -> " + _e);
+}
+

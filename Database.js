@@ -56,4 +56,11 @@ function findSpecific(_s, _callback) {
     }
 }
 exports.findSpecific = findSpecific;
+function update(_s, _u) {
+    accounts.update(_s, _u, handleUpdate);
+}
+exports.update = update;
+function handleUpdate(_e) {
+    console.log("Database insertion returned -> " + _e);
+}
 //# sourceMappingURL=Database.js.map

@@ -79,6 +79,34 @@ function handleRequest(_request, _response) {
                 }
             }
             break;
+        case "update":
+            let searchUpdate;
+            let changeUpdate;
+            searchUpdate = { user: query["user"] };
+            changeUpdate = {
+                wave: parseInt(query["wave"]),
+                level: parseInt(query["level"]),
+                game: parseInt(query["game"]),
+                gold: parseFloat(query["gold"]),
+                swordlvl: parseInt(query["swordlvl"]),
+                rotationlvl: parseInt(query["rotationlvl"]),
+                creepHealth: parseFloat(query["creepHealth"]),
+                lastHealth: parseFloat(query["lastHealth"]),
+                creepValue: parseFloat(query["creepValue"]),
+                lastValue: parseFloat(query["lastValue"]),
+                tower: query["tower"],
+                ncDeactivated: parseInt(query["ncDeactivated"]),
+                ncActivated: parseInt(query["ncActivated"])
+            };
+            if (query["user"] == "") {
+                respond(_response, "You are not logged in");
+                break;
+            }
+            else {
+                Database.update(searchUpdate, changeUpdate);
+                respond(_response, "Game saved");
+                break;
+            }
         default:
             respond(_response, "unknown command: " + command);
             break;
