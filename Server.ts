@@ -1,6 +1,9 @@
 /**
  * Simple server managing between client and database
- * @author: Jirka Dell'Oro-Friedl
+ * Original Author
+ * @author Jirka Dell'Oro-Friedl
+ * Modified by
+ * @author Dominik Braun
  */
 import Http = require("http");
 import Url = require("url");

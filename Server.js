@@ -1,7 +1,10 @@
 "use strict";
 /**
  * Simple server managing between client and database
- * @author: Jirka Dell'Oro-Friedl
+ * Original Author
+ * @author Jirka Dell'Oro-Friedl
+ * Modified by
+ * @author Dominik Braun
  */
 const Http = require("http");
 const Url = require("url");

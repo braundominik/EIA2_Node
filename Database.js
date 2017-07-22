@@ -1,7 +1,10 @@
 "use strict";
 /**
  * Simple database insertion and query for MongoDB
- * @author: Jirka Dell'Oro-Friedl
+ * Original Author
+ * @author Jirka Dell'Oro-Friedl
+ * Modified by
+ * @author Dominik Braun
  */
 const Mongo = require("mongodb");
 console.log("Database starting");

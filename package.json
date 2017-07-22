@@ -2,7 +2,7 @@
 	"name" : "DatabaseAccess",
 	"version" : "0.0.1",
 	"description" : "simple database find/insert example",
-	"author" : "Jirka Dell'Oro-Friedl'",
+	"author" : "Dominik Braun'",
 	"main" : "Server.js",
 	"scripts" : {
 		"start" : "node Server.js"
